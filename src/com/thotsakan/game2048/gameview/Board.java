@@ -77,10 +77,10 @@ final class Board {
 		tiles = rotate(90);
 	}
 
-	public void draw(Canvas canvas, Resources resources, int width, int height) {
+	public void draw(Canvas canvas, Resources resources, float originX, float originY, float width, float height) {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				tiles[i * 4 + j].draw(canvas, resources, i, j, width, height);
+				tiles[i * 4 + j].draw(canvas, resources, originX, originY, i, j, width, height);
 			}
 		}
 	}

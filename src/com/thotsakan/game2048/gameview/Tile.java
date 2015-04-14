@@ -35,7 +35,7 @@ final class Tile {
 		this.value = value;
 	}
 
-	public void draw(Canvas canvas, Resources resources, int x, int y, int width, int height) {
+	public void draw(Canvas canvas, Resources resources, float originX, float originY, int x, int y, float width, float height) {
 		Bitmap bitmap = bitmapCache.get(value);
 		if (bitmap == null) {
 			int resourceId = resources.getIdentifier("ic_tile_" + value, "drawable", MainActivity.class.getPackage().getName());
@@ -43,6 +43,7 @@ final class Tile {
 			bitmapCache.put(value, bitmap);
 		}
 		RectF rect = new RectF(y * height, x * width, (y * height) + height, (x * width) + width);
+		rect.offset(originX, originY);
 		rect.inset(3, 3);
 		canvas.drawRect(rect, paintTile);
 		canvas.drawBitmap(bitmap, null, rect, paintTile);

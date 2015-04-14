@@ -139,16 +139,12 @@ public class GameView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		int tileLen = Math.min(getWidth(), getHeight()) / _BOARD_SIZE;
-		board.draw(canvas, getResources(), tileLen, tileLen);
+		float tileLen = Math.min(getWidth(), getHeight()) / _BOARD_SIZE;
+		float boardLen = tileLen * _BOARD_SIZE;
+		float originX = (getWidth() - boardLen) / 2;
+		float originY = (getHeight() - boardLen) / 2;
+		board.draw(canvas, getResources(), originX, originY, tileLen, tileLen);
 		super.onDraw(canvas);
-	}
-
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		int measuredWidth = MeasureSpec.makeMeasureSpec((int) (MeasureSpec.getSize(widthMeasureSpec) * 0.95), MeasureSpec.AT_MOST);
-		int measuredheight = MeasureSpec.makeMeasureSpec((int) (MeasureSpec.getSize(heightMeasureSpec) * 0.95), MeasureSpec.AT_MOST);
-		setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), measuredWidth), getDefaultSize(getSuggestedMinimumHeight(), measuredheight));
 	}
 
 	@SuppressLint("ClickableViewAccessibility")
