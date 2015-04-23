@@ -29,6 +29,6 @@
     <string name="result_dialog_newGame">Play Again</string>
 
     <!-- AdMob -->
-    <string name="ad_unit_id"></string>
+    <string name="ad_unit_id">ca-app-pub-4624426958453943/1853868318</string>
 
 </resources>
