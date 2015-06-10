@@ -20,7 +20,7 @@ final class Tile {
 
 	static {
 		paintTile = new Paint(Paint.ANTI_ALIAS_FLAG);
-		paintTile.setColor(Color.DKGRAY);
+		paintTile.setColor(Color.GRAY);
 		paintTile.setStrokeWidth(0);
 		paintTile.setStyle(Style.STROKE);
 	}
@@ -45,8 +45,8 @@ final class Tile {
 		RectF rect = new RectF(y * height, x * width, (y * height) + height, (x * width) + width);
 		rect.offset(originX, originY);
 		rect.inset(3, 3);
-		canvas.drawRect(rect, paintTile);
 		canvas.drawBitmap(bitmap, null, rect, paintTile);
+		canvas.drawRect(rect, paintTile);
 	}
 
 	public int getValue() {
